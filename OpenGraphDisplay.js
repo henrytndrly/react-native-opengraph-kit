@@ -23,6 +23,8 @@ import {
     TouchableWithoutFeedback,
 } from 'react-native';
 
+import { PropTypes } from 'prop-types';
+
 const colors = {
     defaultBackgroundColor: '#EEEEEE',
     defaultIconColor: 'black',
@@ -82,16 +84,16 @@ export default class OpenGraphDisplay extends Component {
     static propTypes = {
         containerStyle: View.propTypes.style,
         descriptionStyle: Text.propTypes.style,
-        data: React.PropTypes.shape({
-            url: React.PropTypes.string,
-            image: React.PropTypes.string,
-            title: React.PropTypes.string,
-            description: React.PropTypes.string,
+        data: PropTypes.shape({
+            url: PropTypes.string,
+            image: PropTypes.string,
+            title: PropTypes.string,
+            description: PropTypes.string,
         }).isRequired,
         iconSource: Image.propTypes.source,
         iconStyle: Image.propTypes.style,
         imageStyle: Image.propTypes.style,
-        onIconPress: React.PropTypes.func,
+        onIconPress: PropTypes.func,
         textContainerStyle: View.propTypes.style,
         touchContainerStyle: View.propTypes.style,
         titleStyle: Text.propTypes.style,

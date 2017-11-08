@@ -4,6 +4,7 @@ import {
     TextInput,
     View,
 } from 'react-native';
+import { PropTypes } from 'prop-types';
 import OpenGraphDisplay from './OpenGraphDisplay';
 import OpenGraphParser from './OpenGraphParser';
 import debounce from 'lodash.debounce';
@@ -20,12 +21,12 @@ const styles = StyleSheet.create({
 export default class OpenGraphAwareInput extends Component {
     static propTypes = {
         containerStyle: View.propTypes.style,
-        debounceDelay: React.PropTypes.number,
+        debounceDelay: PropTypes.number,
         iconSource: OpenGraphDisplay.propTypes.iconSource,
         iconStyle: OpenGraphDisplay.propTypes.iconStyle,
-        onChange: React.PropTypes.func,
-        onIconPress: React.PropTypes.func,
-        showIcon: React.PropTypes.bool,
+        onChange: PropTypes.func,
+        onIconPress: PropTypes.func,
+        showIcon: PropTypes.bool,
         textInputStyle: TextInput.propTypes.style,
     };
 
