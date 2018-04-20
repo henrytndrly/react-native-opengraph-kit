@@ -4,7 +4,11 @@
 
 A set of components and utils useful to extract opengraph data directly from your react-native app, with almost no dependency.
 
-For react-native v0.26+
+For react-native v0.44+
+
+:warning: `2.0.0` is a breaking change, the Parser is now returning an `Array` of results for all the URLs in the text analysed.
+
+If you are using only the `OpenGraphAwareInput`, you don't have to change anything.
 
 # Prerequesites
 
@@ -38,13 +42,14 @@ import { OpenGraphAwareInput, OpenGraphDisplay, OpenGraphParser } from 'react-na
 
 Property Name | Type | Description
 --- | --- | ---
-containerStyle | View.propTypes.style | A style to pass to customize the style of the container
+containerStyle | ViewPropTypes.style | A style to pass to customize the style of the container
 onChange | React.PropTypes.func | The function to call on change in the TextInput
 textInputStyle | TextInput.propTypes.style | A style to pass to customize the style of the textInput
 onIconPress | React.PropTypes.func | A function to call when the Icon is pressed (see `OpenGraphDisplay`). By default, the function clear the `opengraphdata` field returned (and therefore the resulting `OpenGraphDisplay`).
 iconSource | Image.propTypes.source | The Image Source to use as Icon (see `OpenGraphDisplay`)
 iconStyle | Image.propTypes.style | The style of the Icon (see `OpenGraphDisplay`)
 showIcon | React.PropTypes.bool | Should we show the Icon or not? (default is `false`)
+resultLimit | React.PropTypes.number | Max number of parsed OpenGraph links to display (default is `1`)
 
 ## OpenGraphDisplay
 
@@ -59,14 +64,14 @@ Fully customizable widget for the extracted data
 Property Name | Type | Description
 --- | --- | ---
 data | React.PropTypes.shape({ <br>    url: React.PropTypes.string, <br>    image: React.PropTypes.string,<br>    title: React.PropTypes.string,<br>    description: React.PropTypes.string,<br>}).isRequired | The data gotten out of the `OpenGraphAwareInput` or the `OpenGraphParser`
-containerStyle | View.propTypes.style | A style to pass to customize the style of the container
+containerStyle | ViewPropTypes.style | A style to pass to customize the style of the container
 imageStyle | Image.propTypes.style | A style to pass to customize the style of the image
-textContainerStyle | View.propTypes.style | A style to pass to customize the style of the textContainer
-touchContainerStyle | View.propTypes.style | A style to pass to customize the style of the View that is touchable when the content is "rich" (as opposed to `urlOnlyTouchContainerStyle`)
+textContainerStyle | ViewPropTypes.style | A style to pass to customize the style of the textContainer
+touchContainerStyle | ViewPropTypes.style | A style to pass to customize the style of the View that is touchable when the content is "rich" (as opposed to `urlOnlyTouchContainerStyle`)
 titleStyle | Text.propTypes.style | A style to pass to customize the style of the title
 descriptionStyle | Text.propTypes.style | A style to pass to customize the style of the description
 urlStyle | Text.propTypes.style | A style to pass to customize the style of the url
-urlOnlyTouchContainerStyle | View.propTypes.style | A style to pass to customize the style of the View that is touchable when the content is "poor" (Just the url, no info has been successfully fetched)
+urlOnlyTouchContainerStyle | ViewPropTypes.style | A style to pass to customize the style of the View that is touchable when the content is "poor" (Just the url, no info has been successfully fetched)
 onIconPress | React.PropTypes.func | When this function is provided, puts an Icon on the right of the OpenGraphDisplay (by default an `x`)
 iconSource | Image.propTypes.source | The Image Source to use as Icon
 iconStyle | Image.propTypes.style | The style of the Icon
@@ -98,13 +103,15 @@ render() {
 Example of `data` object:
 
 ```js
-{
-    description: "We're a young and inspired team that leverages technical knowledge to turn ideas into creative and efficient digital solutions.",
-    image: "https://osedea.com/images/thumbnail-osedea-1.png",
-    title: "OSEDEA | Digital Efficiency & Creativity",
-    type: "website",
-    url: "http://osedea.com",
-}
+[
+    {
+        description: "We're a young and inspired team that leverages technical knowledge to turn ideas into creative and efficient digital solutions.",
+        image: "https://osedea.com/images/thumbnail-osedea-1.png",
+        title: "OSEDEA | Digital Efficiency & Creativity",
+        type: "website",
+        url: "http://osedea.com",
+    }
+]
 ```
 
 See simple React-native example project in [example](./example) for a working example

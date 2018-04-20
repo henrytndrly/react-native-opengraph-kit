@@ -51,7 +51,7 @@ const urls = [
         name: 'a website that allows only google bot through if programmatically called',
         expected: {
             description: '另外，代號「劍影專案」的海劍羚飛彈（Sea Oryx Missile system）短程防空反飛彈系統，是以天劍一短程防空飛彈結合紅外線與被動雷達整合導引的輕型、點防禦艦對空飛彈，用來攔截反艦飛彈 ，今年也將安排進入實彈測試。',
-            image: 'https://s.yimg.com/uu/api/res/1.2/N.CRvYlQ64WaxyiAOa343Q--/aD0zNzI7dz03NDQ7c209MTthcHBpZD15dGFjaHlvbg--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/7aca164b9949d2a9879d8b6f0e85bab6',
+            image: 'https://s.yimg.com/uu/api/res/1.2/bz7yYtGiWEpxQ.f5xR.T7Q--~B/aD0zNzI7dz03NDQ7c209MTthcHBpZD15dGFjaHlvbg--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/7aca164b9949d2a9879d8b6f0e85bab6',
             title: '【獨家】多重阻嚇解放軍 中科院實測天弓、天劍與雄風系列「新三彈」 - Yahoo奇摩新聞',
             url: 'https://tw.news.yahoo.com/%E3%80%90%E7%8D%A8%E5%AE%B6%E3%80%91%E5%A4%9A%E9%87%8D%E9%98%BB%E5%9A%87%E8%A7%A3%E6%94%BE%E8%BB%8D%E3%80%80%E4%B8%AD%E7%A7%91%E9%99%A2%E5%AF%A6%E6%B8%AC%E5%A4%A9%E5%BC%93%E3%80%81%E5%A4%A9%E5%8A%8D-013928232.html',
         }
@@ -81,7 +81,7 @@ const urls = [
         name: 'a URL with a protocol agnostic image in HTTPS',
         expected: {
             description: 'Visit BBC News for up-to-the-minute news, breaking news, video, audio and feature stories. BBC News provides trusted World and UK news as well as local and regional perspectives. Also entertainment, business, science, technology and health news.',
-            image: 'https://m.files.bbci.co.uk/modules/bbc-morph-news-waf-page-meta/1.2.0/bbc_news_logo.png?cb=1',
+            image: /https:\/\/m\.files\.bbci\.co\.uk\/modules\/bbc-morph-news-waf-page-meta\/[1-9]\.[1-9]+\.[1-9]+\/bbc_news_logo\.png/,
             title: 'Home - BBC News',
             url: 'https://www.bbc.co.uk/news',
         }
@@ -91,7 +91,7 @@ const urls = [
         name: 'a URL with a protocol agnostic image in HTTP',
         expected: {
             description: 'Visit BBC News for up-to-the-minute news, breaking news, video, audio and feature stories. BBC News provides trusted World and UK news as well as local and regional perspectives. Also entertainment, business, science, technology and health news.',
-            image: 'http://m.files.bbci.co.uk/modules/bbc-morph-news-waf-page-meta/1.2.0/bbc_news_logo.png?cb=1',
+            image: /http:\/\/m\.files\.bbci\.co\.uk\/modules\/bbc-morph-news-waf-page-meta\/[1-9]\.[1-9]+\.[1-9]+\/bbc_news_logo\.png/,
             title: 'Home - BBC News',
             url: 'http://www.bbc.co.uk/news',
         }
@@ -125,8 +125,34 @@ const urls = [
             title: 'Julien Verlaguet - Reflex: Reactive Programming at Facebook',
             url: 'https://www.youtube.com/watch?v=AGkSHE15BSs',
         },
-    }
+    },
+    {
+        url: 'https://www.facebook.com/slackhq/posts/848094788621462',
+        name: 'Facebook',
+        expected: {
+            description: "We're happy you're here! If you need help, you might want to search for an answer on our Help Center (https://get.slack.help/hc/en-us), drop an email to feedback@slack.com, or find us on Twitter as...",
+            image: 'something',
+            title: 'Slack',
+            url: 'https://www.facebook.com/slackhq/posts/848094788621462',
+        },
+    },
+    {
+        url: 'https://column.clintal.com/健診を受ける/がん検診/7010',
+        name: 'a URL with international characters',
+        expected: {
+            description: 'ひとくちにがん検診と言っても、種類は非常に多いです。どのがんを見つけるための検査を行うかによって胃がん検診、肺がん検診、子宮頸がん検診など様々な検査があります。 このように様々な種類の検診から「どの検診を選べばよいか」は悩むところかと思います。予算と相談しつつ、例えば喫煙習慣がある方は肺がん検診、日頃の食生活が乱れていると感じる方は胃がん検診を、といったようにがんのリスクとなるような要因をもとに、気になる部位に合った検診を受けるのがよいでしょう。今回はがん検診を受ける前に知っておきたいポイントについて、お伝えします。ぜひご覧ください。 前回のコラムで、がん検診についてお話しさせていただきましたが、今回のコラムをお読みになる前に一読いただくと、内容がより理解しやすいかと思います。よろしければご覧ください。 現在推奨されている5つのがん検診 様々な種類があるがん検診ですが、現在「がん予防重点健康教育及びがん検診実施のための指針」によって、厚生労働省が推進しているのは5つの部位の検診となっています。その5つの検診とは、肺がん・胃がん・大腸がん・乳がん・子宮がんです。これらの部位に対して、下記のような検査方法で行うがん検診をまとめて対策型検診と呼びます。 (検査方法は、集団における死亡率減少を目的として公共的な予防対策としてとして行われる検査をいいます。有効性評価に基づく、がん検診・健保組合等のがん対策担当機関が選ぶこととなっています。) これら5つのがんはいずれも日本人がかかりやすいがんですが、検診を行うことで「集団におけるがんによる死亡率の減少に効果がある」と様々な研究から結果が示されています。 またこれらの検診は公共的な予防対策として行われているため、公的な補助金が出ます。そのため、無料もしくは少額の自己負担(例えば、横浜市の肺がん検診費用負担は680円！)で検査を受けることができるのです。検診の対象となっている場合には、自治体から案内とともに検診受診券などが送られてきますので、検診の申込期間、受診期間を確認した上で検診を受けに行ってみましょう。',
+            image: 'https://column.clintal.com/wp-content/uploads/2017/12/Fotolia_179793956_Subscription_Monthly_M-1024x682.jpg',
+            title: 'がん検診にはオプションがある！？医師が教える、がん検診を受けるときに知っておきたいポイント！ - クリンタルコラム',
+            url: 'https://column.clintal.com/健診を受ける/がん検診/7010',
+        },
+    },
 ];
+const propsToCheck = [
+    'description',
+    'image',
+    'title',
+    'url',
+]
 
 const parser = require('../OpenGraphParser');
 
@@ -193,13 +219,10 @@ describe('Parser', function() {
                 this.timeout(15000);
 
                 return parser.extractMeta(item.url)
-                .then((meta) => {
-                    const propsToCheck = [
-                        'description',
-                        'image',
-                        'title',
-                        'url',
-                    ]
+                .then((metas) => {
+                    expect(metas.length).to.equal(1);
+
+                    const meta = metas[0];
                     const errors = [];
 
                     propsToCheck.forEach((prop) => {
@@ -211,6 +234,15 @@ describe('Parser', function() {
                             }
                         } else if (item.expected[prop] === 'whoKnows') {
                             // do not test that prop. It could be defined or not, according to the time
+                        } else if (typeof item.expected[prop] === 'object') {
+                            // it's a regexp
+                            try {
+                                const doesItMatch = meta[prop].match(item.expected[prop]);
+
+                                expect(doesItMatch).to.not.equal(null);
+                            } catch (error) {
+                                errors.push(`${prop} value ${meta[prop]} should match ${item.expected[prop]}.`);
+                            }
                         } else {
                             try {
                                 expect(meta[prop]).to.equal(item.expected[prop]);
@@ -222,6 +254,60 @@ describe('Parser', function() {
 
                     expect(errors).to.deep.equal([]);
                 });
+            });
+        });
+    });
+    describe('extractMultiple', function() {
+        it(`should extract multiple urls and og-data correctly`, function() {
+            return parser.extractMeta('This is one https://www.facebook.com/slackhq/posts/848094788621462 and this is two https://column.clintal.com/健診を受ける/がん検診/7010')
+            .then((metas) => {
+                const resultsExpected = [
+                    {
+                        description: "We're happy you're here! If you need help, you might want to search for an answer on our Help Center (https://get.slack.help/hc/en-us), drop an email to feedback@slack.com, or find us on Twitter as...",
+                        image: 'something',
+                        title: 'Slack',
+                        url: 'https://www.facebook.com/slackhq/posts/848094788621462',
+                    },
+                    {
+                        description: 'ひとくちにがん検診と言っても、種類は非常に多いです。どのがんを見つけるための検査を行うかによって胃がん検診、肺がん検診、子宮頸がん検診など様々な検査があります。 このように様々な種類の検診から「どの検診を選べばよいか」は悩むところかと思います。予算と相談しつつ、例えば喫煙習慣がある方は肺がん検診、日頃の食生活が乱れていると感じる方は胃がん検診を、といったようにがんのリスクとなるような要因をもとに、気になる部位に合った検診を受けるのがよいでしょう。今回はがん検診を受ける前に知っておきたいポイントについて、お伝えします。ぜひご覧ください。 前回のコラムで、がん検診についてお話しさせていただきましたが、今回のコラムをお読みになる前に一読いただくと、内容がより理解しやすいかと思います。よろしければご覧ください。 現在推奨されている5つのがん検診 様々な種類があるがん検診ですが、現在「がん予防重点健康教育及びがん検診実施のための指針」によって、厚生労働省が推進しているのは5つの部位の検診となっています。その5つの検診とは、肺がん・胃がん・大腸がん・乳がん・子宮がんです。これらの部位に対して、下記のような検査方法で行うがん検診をまとめて対策型検診と呼びます。 (検査方法は、集団における死亡率減少を目的として公共的な予防対策としてとして行われる検査をいいます。有効性評価に基づく、がん検診・健保組合等のがん対策担当機関が選ぶこととなっています。) これら5つのがんはいずれも日本人がかかりやすいがんですが、検診を行うことで「集団におけるがんによる死亡率の減少に効果がある」と様々な研究から結果が示されています。 またこれらの検診は公共的な予防対策として行われているため、公的な補助金が出ます。そのため、無料もしくは少額の自己負担(例えば、横浜市の肺がん検診費用負担は680円！)で検査を受けることができるのです。検診の対象となっている場合には、自治体から案内とともに検診受診券などが送られてきますので、検診の申込期間、受診期間を確認した上で検診を受けに行ってみましょう。',
+                        image: 'https://column.clintal.com/wp-content/uploads/2017/12/Fotolia_179793956_Subscription_Monthly_M-1024x682.jpg',
+                        title: 'がん検診にはオプションがある！？医師が教える、がん検診を受けるときに知っておきたいポイント！ - クリンタルコラム',
+                        url: 'https://column.clintal.com/健診を受ける/がん検診/7010',
+                    },
+                ];
+
+                metas.forEach((meta, i) => {
+                    const errors = [];
+
+                    propsToCheck.forEach((prop) => {
+                        if (resultsExpected[i][prop] === 'something') {
+                            try {
+                                expect(meta[prop]).to.not.be.undefined;
+                            } catch (error) {
+                                errors.push(`${prop} should be not be undefined: ${meta[prop]}`);
+                            }
+                        } else if (resultsExpected[i][prop] === 'whoKnows') {
+                            // do not test that prop. It could be defined or not, according to the time
+                        } else if (typeof resultsExpected[i][prop] === 'object') {
+                            // it's a regexp
+                            try {
+                                const doesItMatch = meta[prop].match(resultsExpected[i][prop]);
+
+                                expect(doesItMatch).to.not.equal(null);
+                            } catch (error) {
+                                errors.push(`${prop} value ${meta[prop]} should match ${resultsExpected[i][prop]}.`);
+                            }
+                        } else {
+                            try {
+                                expect(meta[prop]).to.equal(resultsExpected[i][prop]);
+                            } catch (error) {
+                                errors.push(`${prop} should be ${resultsExpected[i][prop]}. Not ${meta[prop]}`);
+                            }
+                        }
+                    });
+
+                    expect(errors).to.deep.equal([]);
+                })
             });
         });
     });
